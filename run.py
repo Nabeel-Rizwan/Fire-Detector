@@ -15,14 +15,14 @@ while True:
     frame = cv2.resize(frame,(600,500))     # Frame size
     result = model(frame,stream=True)
 
-    # Getting box,confidence and class names informations to work with. If confidence is more than 75 , It is a fire
+    # Getting box,confidence and class names informations to work with. If confidence is more than 70 , It is a fire
     for info in result:
         boxes = info.boxes
         for box in boxes:
             confidence = box.conf[0]
             confidence = math.ceil(confidence * 100)
             Class = int(box.cls[0])
-            if confidence > 75:
+            if confidence > 70:
                 x1,y1,x2,y2 = box.xyxy[0]
                 x1, y1, x2, y2 = int(x1),int(y1),int(x2),int(y2)
                 cv2.rectangle(frame,(x1,y1),(x2,y2),(0,0,255),5)
