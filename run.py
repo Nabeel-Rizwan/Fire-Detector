@@ -4,7 +4,7 @@ import cv2
 import math
 
 # Running real time from webcam
-cap = cv2.VideoCapture('video.mp4')       #   We can use external camera like CCTV to detect and monitor fire.
+cap = cv2.VideoCapture(0)       #   We can use external camera like CCTV to detect and monitor fire.
 model = YOLO('fire.pt')         # Trained Model through Yolo
 
 # Reading the classes
