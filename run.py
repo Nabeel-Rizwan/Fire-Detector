@@ -4,7 +4,7 @@ import cv2
 import math
 
 # Running real time from webcam
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)       #   We can use external camera like CCTV to detect and monitor fire.
 model = YOLO('best.pt')         # Trained Model through Yolo
 
 # Reading the classes
@@ -15,7 +15,7 @@ while True:
     frame = cv2.resize(frame,(600,500))     # Frame size
     result = model(frame,stream=True)
 
-    # Getting box,confidence and class names informations to work with. If confidence is more than 80, It is a fire
+    # Getting box,confidence and class names informations to work with. If confidence is more than 80 , It is a fire
     for info in result:
         boxes = info.boxes
         for box in boxes:
